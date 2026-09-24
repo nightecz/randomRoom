@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Room | Laboratoř náhody</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="hero">
+            <p class="eyebrow">random room / experimentální kout</p>
+            <h1>Co dnes rozhodne náhoda?</h1>
+            <p class="intro">Malá laboratoř pro velké otázky. Spusť experiment, sleduj výsledek a nech se překvapit tím, co udělá náhodné číslo.</p>
+            <div class="hero-meta">
+                <span><i class="status-dot"></i> systém připraven</span>
+                <span>3 experimenty k prozkoumání</span>
+            </div>
+        </header>
+
+        <div class="lab-layout">
+            <section class="experiments" aria-labelledby="experiment-heading">
+                <div class="section-heading">
+                    <p class="eyebrow">vyber si pokus</p>
+                    <h2 id="experiment-heading">Tři způsoby, jak si sáhnout na náhodu</h2>
+                </div>
+
+                <article class="experiment-card coin-card">
+                <div class="card-number">01</div>
+                <div class="card-content">
+                    <p class="card-label">pravděpodobnost</p>
+                    <h3>Mince</h3>
+                    <p>Je každý hod opravdu napůl? Hoď mincí a sleduj, jak se náhoda tváří v jednom pokusu.</p>
+                    <div class="result" id="coin-result" aria-live="polite">Čekám na hod...</div>
+                    <button class="action-button" id="flip-button" type="button">Hodit mincí <span aria-hidden="true">↗</span></button>
+                </div>
+                </article>
+
+                <article class="experiment-card magic-card">
+                <div class="card-number">02</div>
+                <div class="card-content">
+                    <p class="card-label">predikce</p>
+                    <h3>Magická koule</h3>
+                    <p>Polož si otázku, na kterou se odvážíš slyšet odpověď. Algoritmus má vždycky názor.</p>
+                    <label class="sr-only" for="question-input">Tvoje otázka</label>
+                    <input id="question-input" type="text" placeholder="Na co se chceš zeptat?" autocomplete="off">
+                    <div class="result" id="magic-result" aria-live="polite">Koule mlčí...</div>
+                    <button class="action-button" id="ask-button" type="button">Zeptat se <span aria-hidden="true">↗</span></button>
+                </div>
+                </article>
+
+                <article class="experiment-card game-card">
+                <div class="card-number">03</div>
+                <div class="card-content">
+                    <p class="card-label">strategie</p>
+                    <h3>Kámen, nůžky, papír</h3>
+                    <p>Krátká hra proti počítači. Vyber si tah a zjisti, jestli tě dnes náhoda podrží.</p>
+                    <div class="choice-row" role="group" aria-label="Vyber tah">
+                        <button class="choice-button" data-choice="0" type="button">Kámen</button>
+                        <button class="choice-button" data-choice="1" type="button">Papír</button>
+                        <button class="choice-button" data-choice="2" type="button">Nůžky</button>
+                    </div>
+                    <div class="result" id="game-result" aria-live="polite">Čekám na tvůj tah...</div>
+                </div>
+                </article>
+            </section>
+
+            <aside class="terminal" aria-labelledby="terminal-heading">
+                <div class="terminal-topbar">
+                    <div class="terminal-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+                    <span>random-room.log</span>
+                    <button id="clear-terminal" type="button">clear</button>
+                </div>
+                <div class="terminal-heading">
+                    <p class="eyebrow">výsledky v reálném čase</p>
+                    <h2 id="terminal-heading">Experimentální terminál</h2>
+                </div>
+                <div class="terminal-output" id="terminal-output" role="log" aria-live="polite" aria-label="Historie výsledků">
+                    <p><span class="terminal-prompt">$</span> random-room --start</p>
+                    <p class="terminal-muted">Čekám na první pokus...</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer-note">Každé kliknutí je nový experiment. Výsledek není osud, jen další datový bod.</footer>
+    </main>
+
+    <script src="terminal.js" defer></script>
+    <script src="coinFlip.js" defer></script>
+    <script src="magic8Ball.js" defer></script>
+    <script src="rockPaperScissors.js" defer></script>
+</body>
+</html>

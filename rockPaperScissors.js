@@ -1,22 +1,22 @@
-let player = 0;
-const computer = Math.floor(Math.random() * 3);
+const choiceButtons = document.querySelectorAll(".choice-button");
+const gameResult = document.querySelector("#game-result");
+const choices = ["Kámen", "Papír", "Nůžky"];
 
-if (player === 0) {
-  console.log("Player picked:   Rock");
-}
+choiceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const playerChoice = Number(button.dataset.choice);
+    const computerChoice = Math.floor(Math.random() * choices.length);
+    const outcome = (playerChoice - computerChoice + 3) % 3;
+    const message = outcome === 0
+      ? "Remíza"
+      : outcome === 1
+        ? "Vyhráváš"
+        : "Počítač vyhrává";
 
-if (computer === 0) {
-  console.log("Computer picked: Rock");
-} else if (computer === 1) {
-  console.log("Computer picked: Paper");
-} else if (computer === 2) {
-  console.log("Computer picked: Scissors");
-}
-
-console.log();
-
-if (player === computer) {
-  console.log("It is a draw!");
-} else if (player === 0 && computer !== 1) {
-  console.log("The player won!")
-} else {console.log("The computer won!");}
+    gameResult.textContent = `${message} · ${choices[playerChoice]} vs. ${choices[computerChoice]}`;
+    gameResult.classList.remove("result-pop");
+    void gameResult.offsetWidth;
+    gameResult.classList.add("result-pop");
+    window.writeToTerminal("Kámen / nůžky / papír", gameResult.textContent);
+  });
+});

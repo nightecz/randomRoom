@@ -15,6 +15,7 @@ const answers = [
 function askMagicBall() {
   const answer = answers[Math.floor(Math.random() * answers.length)];
   magicResult.textContent = answer;
+  window.recordStatistic("magic", answer);
   magicResult.classList.remove("result-pop");
   void magicResult.offsetWidth;
   magicResult.classList.add("result-pop");

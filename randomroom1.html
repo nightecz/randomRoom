@@ -79,6 +79,16 @@
                     <p><span class="terminal-prompt">$</span> random-room --start</p>
                     <p class="terminal-muted">Čekám na první pokus...</p>
                 </div>
+                <section class="statistics" aria-labelledby="statistics-heading">
+                    <div class="statistics-heading">
+                        <div>
+                            <p class="eyebrow">dlouhodobý přehled</p>
+                            <h2 id="statistics-heading">Statistika</h2>
+                        </div>
+                        <button id="clear-statistics" type="button">reset</button>
+                    </div>
+                    <div id="statistics-output" aria-live="polite"></div>
+                </section>
             </aside>
         </div>
 
@@ -86,6 +96,7 @@
     </main>
 
     <script src="terminal.js" defer></script>
+    <script src="statistics.js" defer></script>
     <script src="coinFlip.js" defer></script>
     <script src="magic8Ball.js" defer></script>
     <script src="rockPaperScissors.js" defer></script>

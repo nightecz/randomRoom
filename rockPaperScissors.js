@@ -14,6 +14,7 @@ choiceButtons.forEach((button) => {
         : "Počítač vyhrává";
 
     gameResult.textContent = `${message} · ${choices[playerChoice]} vs. ${choices[computerChoice]}`;
+    window.recordStatistic("game", message);
     gameResult.classList.remove("result-pop");
     void gameResult.offsetWidth;
     gameResult.classList.add("result-pop");
